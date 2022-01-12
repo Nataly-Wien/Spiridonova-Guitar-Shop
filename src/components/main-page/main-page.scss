@@ -1,0 +1,11 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+
+
+.main-page {
+  @include reset-indent;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
