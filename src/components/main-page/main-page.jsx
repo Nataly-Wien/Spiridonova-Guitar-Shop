@@ -7,7 +7,7 @@ const MainPage = () => {
   return (
     <div className="main-page page">
       <Header />
-      <main>
+      <main className="main">
         <h1 className="visually-hidden">Каталог</h1>
       </main>
       <Footer />

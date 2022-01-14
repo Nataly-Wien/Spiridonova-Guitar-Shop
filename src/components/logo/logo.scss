@@ -1,0 +1,23 @@
+@import "../../sass/variables.scss";
+
+.logo {
+  &--footer {
+    @media (min-width: $tablet-width) {
+      position: absolute;
+      top: 61px;
+    }
+  }
+}
+
+.logo svg {
+  display: block;
+}
+
+.header__svg path {
+  fill: $black;
+}
+
+.footer__svg path {
+  fill: $white;
+  stroke: $white;
+}

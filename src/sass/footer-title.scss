@@ -1,0 +1,8 @@
+.footer-title {
+  @include font(400, 14px, 20px);
+  @include reset-indent;
+
+  margin-top: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}

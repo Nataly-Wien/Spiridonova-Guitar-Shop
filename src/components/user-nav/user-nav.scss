@@ -1,0 +1,60 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.user-nav {
+  @include list;
+
+  flex-basis: 15.5%;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-top: 17px;
+  margin-right: -5px;
+}
+
+.user-nav__item {
+  margin: 0;
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.user-nav__link {
+  @include font(normal, 14px, 20px);
+
+  height: 20px;
+  display: flex;
+  padding: 10px;
+  color: $dark;
+
+  &:hover path {
+    fill: $dark;
+    stroke: $dark;
+  }
+
+  &:hover .user-nav__icon--map path {
+    fill: none;
+  }
+
+  &:focus,
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.user-nav__icon {
+  display: block;
+  height: 17px;
+}
+
+.user-nav__basket-amount {
+  @include font(400, 10px, 10px);
+  @include reset-indent;
+
+  align-self: flex-start;
+  color: $red;
+  margin-top: -2px;
+  padding-left: 5px;
+}

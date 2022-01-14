@@ -1,0 +1,39 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.main-menu {
+  @include list;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-left: -32px;
+}
+
+.main-menu__item {
+  margin: 0;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.main-menu__link {
+  @include font(normal, 14px, 20px);
+
+  display: block;
+  padding: 25px 15px 10px;
+  color: $black;
+  letter-spacing: 0.9px;
+
+  &:hover{
+    color: $dark;
+  }
+
+  &:focus,
+  &:active {
+    opacity: 0.5;
+  }
+}
