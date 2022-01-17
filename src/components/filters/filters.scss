@@ -1,0 +1,121 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.filters {
+  grid-area: filters;
+  margin-top: 15px;
+}
+
+.filters__open-button {
+  color: $black;
+
+  @media (min-width: $desktop-width) {
+    display: none;
+  }
+}
+
+.filters__title {
+  @include font(700, 18px, 21px, 0.8px);
+  @include reset-indent;
+
+  margin-left: 2px;
+}
+
+.filters-form {
+  @include reset-indent;
+}
+
+.filters-form__fieldset {
+  @include reset-indent;
+
+  position: relative;
+  margin-top: 60px;
+  border: none;
+  display: flex;
+
+  &--price {
+    justify-content: space-between;
+  }
+
+  &--checkbox {
+    flex-direction: column;
+  }
+
+  &::before {
+    @include pseudo;
+    width: 100%;
+    height: 1px;
+    background-color: $card-stroke-gray;
+    top: -76px;
+  }
+}
+
+.filters-form__legend {
+  @include font(700, 18px, 21px, 0.4px);
+
+  margin-bottom: 24px;
+  margin-left: 2px;
+}
+
+.filters-form__input {
+  @include font(400, 14px, 14px, 1px);
+
+  padding: 9px 18px;
+  text-align: center;
+  width: 84px;
+  height: 28px;
+  border: 1px solid $box-stroke-gray;
+  color: $black-opacity;
+  background-color: transparent;
+  font-family: inherit;
+
+  &:focus {
+    color: $black;
+    outline: 1px solid $rusty;
+  }
+}
+
+.filters-form__checkbox-wrapper {
+  margin-bottom: 18px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.filters-form__label {
+  position: relative;
+  padding-left: 43px;
+  letter-spacing: 0.4px;
+
+  &::before {
+    @include pseudo;
+
+    width: 24px;
+    height: 24px;
+    top: 0;
+    left: 3px;
+    border: 1px solid $box-stroke-gray;
+    background-color: transparent;
+
+    input[type=checkbox]:focus ~ & {
+      outline: 1px solid $rusty;
+    }
+  }
+
+  input[type=checkbox]:checked ~ &::before {
+    background-color: transparent;
+    background-image: url("../../img/check-mark.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.filters__apply-button {
+  @include font(700, 12px, 14px, 0.5px);
+
+  margin-top: 45px;
+  margin-left: 3px;
+  padding: 8px 28px;
+  text-transform: uppercase;
+}

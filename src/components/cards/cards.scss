@@ -1,0 +1,95 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.cards {
+  grid-area: catalog;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 15px 14px 20px;
+  border: 1px solid $card-stroke-gray;
+}
+
+.card__buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -3px;
+}
+
+.card__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card__rating-wrapper {
+  display: flex;
+  align-items: baseline;
+  margin: 8px 4px 4px -4px;
+}
+
+.card__button {
+  @include font(700, 12px, 15px, 0.5px);
+
+  min-width: 88px;
+  padding: 4px 8px;
+}
+
+.card__buy-icon {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 8px;
+  background-image: url('./../../img/icon_cart.svg');
+}
+
+.card__title {
+  @include font(400, 14px, 15px, 0.9px);
+  @include reset-indent;
+
+  margin-left: -2px;
+}
+
+.card__price {
+  @include font(400, 14px, 15px, 0.7px);
+  @include reset-indent;
+}
+
+.card__img {
+  align-self: center;
+}
+
+.card__rating {
+  position: relative;
+  width: 70px;
+  height: 14px;
+  margin-right: 3px;
+  background-image: url('./../../img/star-empty.svg');
+}
+
+.card__full-stars {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-image: url('./../../img/star-full.svg');
+}
+
+.card__reviews {
+  @include font(400, 10px, 15px, 1px);
+  @include reset-indent;
+
+  align-self: flex-start;
+  margin-left: 2px;
+  color: $grey;
+}

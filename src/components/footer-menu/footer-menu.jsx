@@ -19,10 +19,10 @@ const FooterMenu = ({title, menuItems, type}) => {
 
 FooterMenu.propTypes = {
   title: PropTypes.string,
-  menuItems: PropTypes.shape({
+  menuItems: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     link: PropTypes.string,
-  }),
+  })),
   type: PropTypes.string,
 };
 

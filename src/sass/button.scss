@@ -1,0 +1,39 @@
+.button {
+  display: inline-block;
+  font-family: inherit;
+  border: none;
+  border-radius: 2px;
+  color: $dark;
+  background-color: $white;
+  cursor: pointer;
+
+  &--grey {
+    background-color: $button-grey;
+    color: $white;
+
+    &:hover {
+      background-color: $dark-grey;
+    }
+
+    &:focus {
+      outline: 1px solid $dark;
+    }
+
+    &:active {
+      background-color: $grey;
+   }
+  }
+
+  &--rusty {
+    background-color: $rusty;
+    color: $white;
+
+    &:hover{
+      background-color: $rusty-hover;
+    }
+
+    &:active {
+      background-color: $rusty-active;
+   }
+  }
+}

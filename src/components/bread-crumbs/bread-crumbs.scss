@@ -1,0 +1,49 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.bread-crumbs {
+  @include list;
+
+  grid-area: crumbs;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.bread-crumbs__item {
+  position: relative;
+
+    &:first-child {
+      margin-left: -12px;
+    }
+
+  &:not(:last-child)::before {
+    @include pseudo;
+
+    width: 12px;
+    height: 1px;
+    top: 20px;
+    right: 0;
+    background-color: $black;
+  }
+
+  &:not(:last-child)::after {
+    @include pseudo;
+
+    width: 5px;
+    height: 5px;
+    top: 18px;
+    right: 0;
+    border-top: 1px solid $black;
+    border-right: 1px solid $black;
+    transform: rotate(45deg);
+  }
+}
+
+.bread-crumbs__link {
+  @include font(400, 16px, 19px, 0.5px);
+
+  display: block;
+  padding: 10px 12px;
+  margin-right: 12px;
+  color: $dark;
+}

@@ -20,11 +20,10 @@
 }
 
 .footer-menu__link {
-  @include font(400, 10px, 20px);
+  @include font(400, 10px, 20px, 1.2px);
 
   display: block;
   color: $white;
-  letter-spacing: 1.2px;
 
   &:hover {
     opacity: 0.5;

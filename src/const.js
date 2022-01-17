@@ -1,3 +1,5 @@
+export const CARDS_PER_PAGE = 9;
+
 export const LogoTypes = {
   HEADER: `header`,
   FOOTER: `footer`,
@@ -110,4 +112,214 @@ export const getSocialIcon = (name) => {
       return (<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 .48C5.639.48.48 5.638.48 12c0 6.363 5.158 11.52 11.52 11.52 6.363 0 11.52-5.157 11.52-11.52C23.52 5.639 18.363.48 12 .48Zm4.686 9.437c.005.099.006.197.006.293 0 3-2.28 6.457-6.454 6.457a6.403 6.403 0 0 1-3.478-1.02c.176.022.358.03.541.03a4.544 4.544 0 0 0 2.818-.97 2.274 2.274 0 0 1-2.12-1.575c.34.065.69.051 1.024-.04a2.27 2.27 0 0 1-1.82-2.224v-.028c.306.17.656.273 1.028.284a2.268 2.268 0 0 1-.702-3.03 6.451 6.451 0 0 0 4.677 2.372 2.269 2.269 0 0 1 3.866-2.07c.508-.1.995-.287 1.44-.551a2.28 2.28 0 0 1-.997 1.256 4.56 4.56 0 0 0 1.303-.359 4.602 4.602 0 0 1-1.132 1.175Z" fill="#fff" /></svg>);
     default: return;
   }
+};
+
+export const BREAD_CRUMBS = [
+  {
+    title: `Главная`,
+    path: `/`,
+  },
+  {
+    title: `Каталог`,
+    path: `/catalog`,
+  },
+  // {
+  //   title: `Оформляем`,
+  //   path: `/basket`,
+  // },
+];
+
+export const FILTER_TYPE_DATA = [
+  {
+    text: `Акустические гитары`,
+    name: `acoustic`,
+  },
+  {
+    text: `Электрогитары`,
+    name: `electro`,
+  },
+  {
+    text: `Укулеле`,
+    name: `ukulele`,
+  },
+];
+
+export const FILTER_STRINGS_DATA = [
+  {
+    text: `4`,
+    name: `four`,
+  },
+  {
+    text: `6`,
+    name: `six`,
+  },
+  {
+    text: `7`,
+    name: `seven`,
+  },
+  {
+    text: `12`,
+    name: `twelve`,
+  },
+];
+
+export const SORT_DATA = [
+  {
+    text: `по цене`,
+    name: `price`,
+  },
+  {
+    text: `популярности`,
+    name: `popularity`,
+  },
+  {
+    text: `7`,
+    name: `up`,
+  },
+  {
+    text: `12`,
+    name: `down`,
+  },
+];
+
+export const CATALOG_LIST = [
+  {
+    title: `Честер Bass`,
+    price: 17500,
+    rating: 4.3,
+    reviews: 15,
+    picture: `electro_1.png`,
+    type: `electro`,
+    strings: 66,
+  },
+  {
+    title: `СURT Z300`,
+    price: 29500,
+    rating: 4,
+    reviews: 9,
+    picture: `electro_2.png`,
+    type: `electro`,
+    strings: 6,
+  },
+  {
+    title: `Roman LX`,
+    price: 6800,
+    rating: 4,
+    reviews: 21,
+    picture: `ukulele_1.png`,
+    type: `ukulele`,
+    strings: 4,
+  },
+  {
+    title: `СURT T300`,
+    price: 30000,
+    rating: 4.5,
+    reviews: 15,
+    picture: `electro_3.png`,
+    type: `electro`,
+    strings: 7,
+  },
+  {
+    title: `Dania Super`,
+    price: 3500,
+    rating: 4.3,
+    reviews: 5,
+    picture: `ukulele_2.png`,
+    type: `acoustic`,
+    strings: 6,
+  },
+  {
+    title: `Честер WX`,
+    price: 15300,
+    rating: 4.5,
+    reviews: 5,
+    picture: `electro_1.png`,
+    type: `electro`,
+    strings: 6,
+  },
+  {
+    title: `Dania VX`,
+    price: 2200,
+    rating: 4,
+    reviews: 5,
+    picture: `ukulele_1.png`,
+    type: `ukulele`,
+    strings: 4,
+  },
+  {
+    title: `Честер Plus`,
+    price: 30000,
+    rating: 5,
+    reviews: 27,
+    picture: `electro_4.png`,
+    type: `electro`,
+    strings: 12,
+  },
+  {
+    title: `Виолана 300`,
+    price: 1700,
+    rating: 4,
+    reviews: 3,
+    picture: `ukulele_2.png`,
+    type: `acoustic`,
+    strings: 6,
+  },
+  // {
+  //   title: `Честер Bass`,
+  //   price: 3500,
+  //   rating: 4.3,
+  //   reviews: 5,
+  //   picture: ``,
+  // type: `electro`,
+  // strings: 7,
+  // },
+  // {
+  //   title: `Честер Bass`,
+  //   price: 3500,
+  //   rating: 4.3,
+  //   reviews: 5,
+  //   picture: ``,
+  // type: `electro`,
+  // strings: 7,
+  // },
+  // {
+  //   title: `Честер Bass`,
+  //   price: 3500,
+  //   rating: 4.3,
+  //   reviews: 5,
+  //   picture: ``,
+  // type: `electro`,
+  // strings: 7,
+  // },
+  // {
+  //   title: `Честер Bass`,
+  //   price: 3500,
+  //   rating: 4.3,
+  //   reviews: 5,
+  //   picture: ``,
+  // type: `electro`,
+  // strings: 7,
+  // },
+  // {
+  //   title: `Честер Bass`,
+  //   price: 3500,
+  //   rating: 4.3,
+  //   reviews: 5,
+  //   picture: ``,
+  // type: `electro`,
+  // strings: 7,
+  // },
+];
+
+export const getMoneyFormat = (number) => number.toString().split(``).reverse().join(``).match(/\d{0,3}/g).join(` `).split(``).reverse().join(``).trim();
+
+const importData = (require) => require.keys().reduce((imgs, next) => {
+  imgs[next.replace("./", "")] = require(next);
+  return imgs;
+}, {});
+
+export const loadImages = () => importData(require.context('./img/', false, /_\d{1,3}\.png$/));
+
+export const getRatingStyle = (rating) => {
+  return {width: `${Math.round(rating * 20)}%`};
 };

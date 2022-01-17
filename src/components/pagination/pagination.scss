@@ -1,0 +1,41 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.pagination {
+  grid-area: pagination;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-bottom: 49px;
+}
+
+.pagination__button {
+  @include font(400, 12px, 20px, 1px);
+
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 11px;
+  border: 1px solid $box-stroke-gray;
+  border-radius: 2px;
+  background-color: $white;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+
+  &--direction {
+    width: 80px;
+  }
+
+  &--current {
+    color: $white;
+    background-color: $dark;
+    border: none;
+    cursor: default;
+  }
+}
+
+span.pagination__button {
+  letter-spacing: 0;
+  cursor: default;
+}

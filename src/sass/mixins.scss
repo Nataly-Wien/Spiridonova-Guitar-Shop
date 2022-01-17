@@ -1,7 +1,8 @@
-@mixin font($weight, $size, $line-height) {
+@mixin font($weight, $size, $line-height, $spacing: normal) {
   font-size: $size;
   line-height: $line-height;
   font-weight: $weight;
+  letter-spacing: $spacing;
 }
 
 @mixin pseudo($display: block, $position: absolute, $content: "") {
