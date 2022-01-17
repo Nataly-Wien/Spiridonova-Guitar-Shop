@@ -1,26 +1,47 @@
 import './bread-crumbs.scss';
-import PropTypes from 'prop-types';
 import React from "react";
+import {useLocation} from "react-router";
+import {Link} from 'react-router-dom';
+import {BREAD_CRUMBS} from '../../const';
 
-const BreadCrumbs = ({list}) => {
+const BreadCrumbs = () => {
+  const location = useLocation().pathname;
+
+  const getCrumbs = (path) => {
+    let crumbs = [];
+    while (path.length > 1) {
+      const crumb = path.slice(path.lastIndexOf(`/`) + 1);
+      crumbs.unshift({
+        href: path,
+        title: BREAD_CRUMBS[crumb],
+      });
+      path = path.slice(0, path.lastIndexOf(`/`));
+    };
+    crumbs.unshift({
+      href: `/`,
+      title: BREAD_CRUMBS.root,
+    });
+
+    console.log(`crumbs=`, crumbs);
+    console.log(location);
+    return crumbs;
+  };
+
   return (
     <ul className="bread-crumbs">
-      {list.map((item) => {
-        return (
-          <li className={`bread-crumbs__item`} key={`${item.path}`}>
-            <a className={`bread-crumbs__link`} href={item.path}>{item.title}</a>
+      {getCrumbs(location).map((item) => {
+        return (item.href !== location ?
+          <li className={`bread-crumbs__item`} key={`${item}`}>
+            <Link className={`bread-crumbs__link`} to={item.href}>{`${item.title}`}</Link>
+          </li>
+          :
+          <li className={`bread-crumbs__item`} key={`${item}`}>
+            <a className={`bread-crumbs__link`}>{`${item.title}`}</a>
           </li>
         );
       })}
     </ul >
   )
-};
-
-BreadCrumbs.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    path: PropTypes.string,
-  })),
 };
 
 export default BreadCrumbs;

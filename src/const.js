@@ -1,5 +1,17 @@
 export const CARDS_PER_PAGE = 9;
 
+export const AppRoutes = {
+  MAIN: '/',
+  CATALOG: `/catalog`,
+  CART: `/catalog/cart`,
+};
+
+export const BREAD_CRUMBS = {
+  root: `Главная`,
+  catalog: `Каталог`,
+  cart: `Оформляем`,
+};
+
 export const LogoTypes = {
   HEADER: `header`,
   FOOTER: `footer`,
@@ -38,7 +50,7 @@ export const USER_NAV_ITEMS = [
   {
     name: `Корзина`,
     icon: `basket`,
-    link: `#`,
+    link: AppRoutes.CART,
   },
 ];
 
@@ -114,21 +126,6 @@ export const getSocialIcon = (name) => {
   }
 };
 
-export const BREAD_CRUMBS = [
-  {
-    title: `Главная`,
-    path: `/`,
-  },
-  {
-    title: `Каталог`,
-    path: `/catalog`,
-  },
-  // {
-  //   title: `Оформляем`,
-  //   path: `/basket`,
-  // },
-];
-
 export const FILTER_TYPE_DATA = [
   {
     text: `Акустические гитары`,
@@ -185,6 +182,7 @@ export const SORT_DATA = [
 export const CATALOG_LIST = [
   {
     title: `Честер Bass`,
+    artNumber: `SO757575`,
     price: 17500,
     rating: 4.3,
     reviews: 15,
@@ -194,6 +192,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `СURT Z300`,
+    artNumber: `AO757599`,
     price: 29500,
     rating: 4,
     reviews: 9,
@@ -203,6 +202,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `Roman LX`,
+    artNumber: ``,
     price: 6800,
     rating: 4,
     reviews: 21,
@@ -212,6 +212,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `СURT T300`,
+    artNumber: ``,
     price: 30000,
     rating: 4.5,
     reviews: 15,
@@ -221,6 +222,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `Dania Super`,
+    artNumber: ``,
     price: 3500,
     rating: 4.3,
     reviews: 5,
@@ -230,6 +232,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `Честер WX`,
+    artNumber: ``,
     price: 15300,
     rating: 4.5,
     reviews: 5,
@@ -239,6 +242,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `Dania VX`,
+    artNumber: ``,
     price: 2200,
     rating: 4,
     reviews: 5,
@@ -248,6 +252,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `Честер Plus`,
+    artNumber: ``,
     price: 30000,
     rating: 5,
     reviews: 27,
@@ -257,6 +262,7 @@ export const CATALOG_LIST = [
   },
   {
     title: `Виолана 300`,
+    artNumber: ``,
     price: 1700,
     rating: 4,
     reviews: 3,
@@ -266,6 +272,7 @@ export const CATALOG_LIST = [
   },
   // {
   //   title: `Честер Bass`,
+  // artNumber: ``,
   //   price: 3500,
   //   rating: 4.3,
   //   reviews: 5,
@@ -275,6 +282,7 @@ export const CATALOG_LIST = [
   // },
   // {
   //   title: `Честер Bass`,
+  // artNumber: ``,
   //   price: 3500,
   //   rating: 4.3,
   //   reviews: 5,
@@ -284,6 +292,7 @@ export const CATALOG_LIST = [
   // },
   // {
   //   title: `Честер Bass`,
+  // artNumber: ``,
   //   price: 3500,
   //   rating: 4.3,
   //   reviews: 5,
@@ -293,6 +302,7 @@ export const CATALOG_LIST = [
   // },
   // {
   //   title: `Честер Bass`,
+  // artNumber: ``,
   //   price: 3500,
   //   rating: 4.3,
   //   reviews: 5,
@@ -302,6 +312,7 @@ export const CATALOG_LIST = [
   // },
   // {
   //   title: `Честер Bass`,
+  // artNumber: ``,
   //   price: 3500,
   //   rating: 4.3,
   //   reviews: 5,
@@ -310,6 +321,12 @@ export const CATALOG_LIST = [
   // strings: 7,
   // },
 ];
+
+export const GUITAR_TYPE = {
+  acoustic: `Акустическая гитара`,
+  electro: `Электрогитара`,
+  ukulele: `Укулеле`,
+};
 
 export const getMoneyFormat = (number) => number.toString().split(``).reverse().join(``).match(/\d{0,3}/g).join(` `).split(``).reverse().join(``).trim();
 

@@ -1,5 +1,6 @@
 import './user-nav.scss';
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {USER_NAV_ITEMS, getUserNavIcon} from '../../const';
 
@@ -11,11 +12,11 @@ const UserNav = ({isOpen}) => {
       {USER_NAV_ITEMS.map((item) => {
         return (
           <li className={`user-nav__item`} key={`${item.icon}`}>
-            <a className={`user-nav__link`} href={item.link}>
+            <Link className={`user-nav__link`} to={item.link}>
               {getUserNavIcon(item.icon)}
               <span className={`user-nav__text visually-hidden`}>{item.name}</span>
-              {item.icon === `basket` && <p className={`user-nav__basket-amount`}>{basketAmount}</p>}
-            </a>
+              {item.icon === `basket` && basketAmount > 0 && <p className={`user-nav__basket-amount`}>{basketAmount}</p>}
+            </Link>
           </li>
         );
       })}

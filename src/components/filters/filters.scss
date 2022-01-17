@@ -60,6 +60,7 @@
 .filters-form__input {
   @include font(400, 14px, 14px, 1px);
 
+  font-family: inherit;
   padding: 9px 18px;
   text-align: center;
   width: 84px;
@@ -67,7 +68,6 @@
   border: 1px solid $box-stroke-gray;
   color: $black-opacity;
   background-color: transparent;
-  font-family: inherit;
 
   &:focus {
     color: $black;

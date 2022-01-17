@@ -1,15 +1,4 @@
-@import "../../sass/mixins.scss";
-@import "../../sass/variables.scss";
-
-.main-page {
-  @include reset-indent;
-
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: $black;
-}
+@import "../../../sass/mixins.scss";
 
 .main {
   display: grid;
@@ -32,4 +21,10 @@
   grid-area: title;
   margin-bottom: 10px;
   letter-spacing: 0.7px;
+
+  &--not-found  {
+    grid-area: catalog;
+    margin: auto;
+    margin-top: 80px;
+  }
 }

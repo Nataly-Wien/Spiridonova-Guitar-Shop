@@ -5,7 +5,6 @@ import {CARDS_PER_PAGE} from '../../const';
 
 const Pagination = ({length, current}) => {
   const pagesNumber = length / CARDS_PER_PAGE === Math.floor(length / CARDS_PER_PAGE) ? Math.floor(length / CARDS_PER_PAGE) : Math.floor(length / CARDS_PER_PAGE) + 1;
-  console.log(pagesNumber, current);
   return (
     <section className="pagination">
       <h2 className="visually-hidden">Страницы каталога</h2>

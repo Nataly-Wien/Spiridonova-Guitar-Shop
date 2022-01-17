@@ -1,6 +1,7 @@
 import './cards.scss';
 import React from "react";
 import PropTypes from 'prop-types';
+import {cardTypesValidation} from './../../types-validation/card-types-validation';
 import {getRatingStyle, getMoneyFormat} from '../../const';
 
 const Cards = ({catalogList, images}) => {
@@ -12,7 +13,7 @@ const Cards = ({catalogList, images}) => {
           return (
             <section className="card" key={item.title}>
               <div className="card__buttons-wrapper">
-                <button className="card__button button button--grey" type="button">Подробнее</button>
+                <a className="card__button button button--grey" href="#">Подробнее</a>
                 <button className="card__button button button--rusty" type="button">
                   <span className="card__buy-icon"></span>
                   Купить
@@ -38,15 +39,7 @@ const Cards = ({catalogList, images}) => {
 };
 
 Cards.propTypes = {
-  catalogList: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    price: PropTypes.number,
-    rating: PropTypes.number,
-    reviews: PropTypes.number,
-    picture: PropTypes.string,
-    type: PropTypes.string,
-    strings: PropTypes.number,
-  })),
+  catalogList: PropTypes.arrayOf(cardTypesValidation),
   images: PropTypes.shape(),
 };
 

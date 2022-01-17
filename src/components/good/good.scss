@@ -1,0 +1,127 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.good {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+
+  &::before,
+  &::after {
+    @include pseudo;
+
+    width: 100%;
+    height: 1px;
+    background-color: $card-stroke-gray;
+  }
+
+  &::before {
+    top: -7px;
+  }
+
+  &::after {
+    bottom: -19px;
+  }
+}
+
+.good__delete-btn {
+  position: relative;
+  display: inline-block;
+  border: none;
+  background-color: $white;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    @include pseudo;
+
+    width: 16px;
+    height: 1.5px;
+    top: 22px;
+    left: 2px;
+    background-color: $grey;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.good__img {
+  display: block;
+  width: 48px;
+  height: 124px;
+  margin-top: 15px;
+  margin-left: -50px;
+}
+
+.good__title-wrapper {
+  margin-left: -17px;
+}
+
+.good__title {
+  @include reset-indent;
+  @include font(700, 16px, 20px, 1.2px);
+
+  margin: 12px 0 10px 0;
+  text-transform: uppercase;
+}
+
+.good__info {
+  @include reset-indent;
+  @include font(400, 14px, 15px, 0.9px);
+
+  margin-bottom: 5px;
+}
+
+.good__price {
+  @include font(400, 20px, 20px, 1px);
+  @include reset-indent;
+
+  align-self: center;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.good__sum-price {
+  @include font(700, 20px, 20px, 1px);
+  @include reset-indent;
+
+  align-self: center;
+  margin-top: 20px;
+
+}
+
+.good__number-wrapper {
+  display: flex;
+  align-self: center;
+  margin-bottom: 35px;
+}
+
+.good__number-btn {
+  @include font(400, 24px, 24px, 0.8px);
+
+  display: inline-block;
+  width: 28px;
+  height: 30px;
+  border: 1px solid $box-stroke-gray;
+  color: $grey;
+  background-color: $white;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+
+  &--input {
+    font-size: 16px;
+  }
+
+  &--minus {
+    padding-bottom: 3px;
+  }
+}

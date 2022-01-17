@@ -1,0 +1,11 @@
+.page {
+  @include reset-indent;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Droid Sans", "Arial", sans-serif;
+  color: $black;
+  background-color: $white;
+}

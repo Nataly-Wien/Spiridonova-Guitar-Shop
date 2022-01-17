@@ -1,0 +1,13 @@
+@import "../../../sass/mixins.scss";
+
+.cart-main {
+  width: 100%;
+}
+
+.cart-main__title {
+  @include reset-indent;
+  @include font(700, 22px, 26px, 0.7px);
+
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
