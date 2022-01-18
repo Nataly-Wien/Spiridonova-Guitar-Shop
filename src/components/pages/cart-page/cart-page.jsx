@@ -1,23 +1,14 @@
 import './cart-page.scss';
-import React, {useRef} from "react";
+import React from "react";
+import {useSelector} from 'react-redux';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 import BreadCrumbs from '../../bread-crumbs/bread-crumbs';
 import Cart from '../../cart/cart';
-import {CATALOG_LIST, loadImages} from '../../../const';
+import Modal from '../../modal/modal';
 
 const CartPage = () => {
-  const imgRef = useRef(null);
-
-  const getImages = () => {
-    if (imgRef.current === null) {
-      imgRef.current = loadImages();
-    }
-
-    return imgRef.current;
-  }
-
-  getImages();
+  const {cart, goodImages} = useSelector((state) => state.GOODS);
 
   return (
     <div className="cart-page page">
@@ -25,9 +16,10 @@ const CartPage = () => {
       <main className="cart-main container">
         <h1 className="cart-main__title">Корзина</h1>
         <BreadCrumbs />
-        <Cart goodsList={CATALOG_LIST.slice(0, 2)} images={imgRef.current ? imgRef.current : {}} />
+        <Cart goodsList={cart} images={goodImages} />
       </main>
       <Footer />
+      <Modal />
     </div >
   );
 };

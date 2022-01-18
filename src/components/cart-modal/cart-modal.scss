@@ -1,0 +1,46 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.cart-modal__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-modal__card-wrapper {
+  display: flex;
+}
+
+.cart-modal__img {
+  width: 50px;
+  height: 128px;
+  margin-right: 44px;
+  margin-left: 3px;
+}
+
+.cart-modal__good-title {
+  @include font(700, 16px, 20px, 1px);
+  @include reset-indent;
+
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.cart-modal__good-info {
+  @include font(400, 14px, 16px, 1px);
+  @include reset-indent;
+
+  margin-bottom: 5px;
+}
+
+.cart-modal__good-price {
+  @include font(700, 20px, 22px, 1.2px);
+  @include reset-indent;
+
+  padding-top: 10px;
+}
+
+.cart-modal__btn-wrapper {
+  display: flex;
+  flex-direction: column;
+}

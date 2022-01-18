@@ -98,13 +98,13 @@
 
 }
 
-.good__number-wrapper {
+.good__btn-wrapper {
   display: flex;
   align-self: center;
   margin-bottom: 35px;
 }
 
-.good__number-btn {
+.good__btn {
   @include font(400, 24px, 24px, 0.8px);
 
   display: inline-block;

@@ -1,6 +1,7 @@
 import './main-menu.scss';
 import React from 'react';
 import {MAIN_MENU_ITEMS} from '../../const';
+import {Link} from 'react-router-dom';
 
 const MainMenu = () => {
 
@@ -9,7 +10,7 @@ const MainMenu = () => {
       {MAIN_MENU_ITEMS.map((item) => {
         return (
           <li className="main-menu__item" key={`${item.name}`}>
-            <a className="main-menu__link" href={`#${item.link}`}>{item.name}</a>
+            <Link className="main-menu__link" to={item.link}>{item.name}</Link>
           </li>
         );
       })}

@@ -22,8 +22,6 @@ const BreadCrumbs = () => {
       title: BREAD_CRUMBS.root,
     });
 
-    console.log(`crumbs=`, crumbs);
-    console.log(location);
     return crumbs;
   };
 
@@ -31,7 +29,7 @@ const BreadCrumbs = () => {
     <ul className="bread-crumbs">
       {getCrumbs(location).map((item) => {
         return (item.href !== location ?
-          <li className={`bread-crumbs__item`} key={`${item}`}>
+          <li className={`bread-crumbs__item`} key={`${item.title}`}>
             <Link className={`bread-crumbs__link`} to={item.href}>{`${item.title}`}</Link>
           </li>
           :

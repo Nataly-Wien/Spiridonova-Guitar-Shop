@@ -1,0 +1,15 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.message-modal {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 53px;
+}
+
+.message-modal__btn-wrapper {
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  width: 74.5%;
+}

@@ -1,12 +1,13 @@
 import './header.scss';
 import React from 'react';
+import {useSelector} from 'react-redux';
 import Logo from '../logo/logo';
 import MainMenu from '../main-menu/main-menu';
 import UserNav from '../user-nav/user-nav';
 import {LogoTypes} from '../../const';
 
 const Header = () => {
-  const isMobileMenuOpen = false;
+  const {isMobileMenuOpen} = useSelector((state) => state.APPEARANCE);
 
   return (
     <header className="header">

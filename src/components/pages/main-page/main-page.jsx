@@ -1,5 +1,7 @@
 import './main-page.scss';
-import React, {useRef} from 'react';
+import React, {useState, useRef} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {ActionCreator} from '../../../store/action';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 import BreadCrumbs from '../../bread-crumbs/bread-crumbs';
@@ -7,20 +9,25 @@ import Filters from '../../filters/filters';
 import Sort from '../../sort/sort';
 import Cards from '../../cards/cards';
 import Pagination from '../../pagination/pagination';
-import {CATALOG_LIST, loadImages} from '../../../const';
+import Modal from '../../modal/modal';
+import {CATALOG_LIST, CARDS_PER_PAGE, loadImages} from '../../../const';
 
 const MainPage = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const catalogPosition = (currentPage - 1) * CARDS_PER_PAGE;
+
+  const {isDataLoaded, isPicturesLoaded} = useSelector((state) => state.GOODS);
+  const dispatch = useDispatch();
   const imgRef = useRef(null);
 
-  const getImages = () => {
-    if (imgRef.current === null) {
-      imgRef.current = loadImages();
-    }
-
-    return imgRef.current;
+  if (imgRef.current === null) {
+    imgRef.current = loadImages();
   }
 
-  getImages();
+  !isDataLoaded && dispatch(ActionCreator.loadGoods(CATALOG_LIST));
+  !isPicturesLoaded && imgRef.current && dispatch(ActionCreator.loadGoodImages(imgRef.current))
+
+  const {catalog, goodImages} = useSelector((state) => state.GOODS);
 
   return (
     <div className="main-page page">
@@ -30,11 +37,11 @@ const MainPage = () => {
         <BreadCrumbs />
         <Filters />
         <Sort />
-        <Cards catalogList={CATALOG_LIST} images={imgRef.current ? imgRef.current : {}} />
-        <Pagination length={55} current={1} />
-        {/* <Pagination length={CATALOG_LIST.length} current={1} /> */}
+        <Cards catalogList={catalog.slice(catalogPosition, catalogPosition + CARDS_PER_PAGE)} images={goodImages} />
+        <Pagination length={catalog.length} current={currentPage} setCurrentPage={setCurrentPage} />
       </main>
       <Footer />
+      <Modal />
     </div >
   );
 };
