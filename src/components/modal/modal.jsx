@@ -29,15 +29,15 @@ const Modal = () => {
     }
   };
 
-  // useEffect(() => {
-  //   document.addEventListener(`keydown`, handleKeydown);
-  //   document.addEventListener(`mousedown`, handleMouseDown);
+  useEffect(() => {
+    document.addEventListener(`keydown`, handleKeydown);
+    document.addEventListener(`mousedown`, handleMouseDown);
 
-  //   return () => {
-  //     document.removeEventListener(`keydown`, handleKeydown);
-  //     document.removeEventListener(`mousedown`, handleMouseDown);
-  //   };
-  // });
+    return () => {
+      document.removeEventListener(`keydown`, handleKeydown);
+      document.removeEventListener(`mousedown`, handleMouseDown);
+    };
+  });
 
   useEffect(() => {
     modalType && blockScroll();
@@ -56,6 +56,7 @@ const Modal = () => {
     [PopupTypes.CART_ADD]: CartModal,
     [PopupTypes.CART_DELETE]: CartModal,
     [PopupTypes.CART_SUCCESS]: MessageModal,
+    [PopupTypes.PROMO_UNSUCCESS]: MessageModal,
   }
 
   const CurrentModal = MODAL_POPUPS[modalType];

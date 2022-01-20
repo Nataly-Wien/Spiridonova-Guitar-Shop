@@ -98,8 +98,16 @@
     border: 1px solid $box-stroke-gray;
     background-color: transparent;
 
+    input[type=checkbox]:hover ~ & {
+      border:  1px solid $box-stroke-gray-hover;
+    }
+
     input[type=checkbox]:focus ~ & {
       outline: 1px solid $rusty;
+    }
+
+    input[type=checkbox]:active ~ & {
+      border: 1px solid $box-stroke-gray-active;
     }
   }
 
@@ -109,6 +117,12 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  input[type=checkbox]:disabled ~ &::before {
+      border: 1px solid $box-stroke-gray-blocked;
+      background-color: $checkbox-blocked-fill;
+      background-image: none;
+    }
 }
 
 .filters__apply-button {

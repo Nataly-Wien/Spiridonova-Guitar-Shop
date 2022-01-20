@@ -1,17 +1,44 @@
 import './filters.scss';
-import React, {useState} from "react";
-// import PropTypes from 'prop-types';
+import React, {useState, useMemo} from "react";
+import {useSelector, useDispatch} from 'react-redux';
+import {ActionCreator} from '../../store/action';
 import {FILTER_TYPE_DATA, FILTER_STRINGS_DATA, getMoneyFormat, getNum, getCorrectValue} from '../../const';
 
-// const Filters = ({type}) => {
 const Filters = () => {
-  const cataloPriceMin = 1000;
-  const cataloPriceMax = 90000;
+  const {catalog, sortRule} = useSelector((state) => state.GOODS);
+
+  const dispatch = useDispatch();
+
+  const cataloPriceMin = useMemo(() => catalog.reduce((min, it) => min > it.price ? it.price : min, catalog[0].price), [catalog]);
+  const cataloPriceMax = useMemo(() => catalog.reduce((max, it) => max < it.price ? it.price : max, catalog[0].price), [catalog]);
 
   const [priceFrom, setPiceFrom] = useState(cataloPriceMin);
   const [priceTo, setPiceTo] = useState(cataloPriceMax);
+  const [type, setType] = useState({
+    acoustic: true,
+    electro: true,
+    ukulele: true,
+  });
+
+  const [strings, setStrings] = useState({
+    4: true,
+    6: true,
+    7: true,
+    12: true,
+  });
+
+  const availableStrings = FILTER_TYPE_DATA.reduce((strings, it) => type[it.name] ? [...strings, ...it.strings] : strings, []);
+
+  const onFilterButtonClick = () => {
+    dispatch(ActionCreator.setFilteredList(catalog.filter((it) =>
+      it.price >= priceFrom && it.price <= priceTo && type[it.type] && strings[it.strings]).sort(sortRule)));
+  };
 
   const onFilterChange = () => {
+
+
+
+
 
   };
 
@@ -36,7 +63,8 @@ const Filters = () => {
           <legend className="filters-form__legend">Тип гитар</legend>
           {FILTER_TYPE_DATA.map((item) => {
             return (<div className="filters-form__checkbox-wrapper" key={item.name}>
-              <input className="visually-hidden" type="checkbox" checked={true} id={item.name} />
+              <input className="visually-hidden" type="checkbox" checked={type[item.name]} id={item.name}
+                onChange={(evt) => setType({...type, [item.name]: evt.target.checked})} />
               <label className="filters-form__label" htmlFor={item.name}>{item.text}</label>
             </div>)
           })}
@@ -45,20 +73,18 @@ const Filters = () => {
           <legend className="filters-form__legend">Количество струн</legend>
           {FILTER_STRINGS_DATA.map((item) => {
             return (<div className="filters-form__checkbox-wrapper" key={item.name}>
-              <input className="visually-hidden" type="checkbox" checked={true} id={item.name} />
-              <label className="filters-form__label" htmlFor={item.name}>{item.text}</label>
+              <input className="visually-hidden" type="checkbox" id={item.name} checked={strings[item.value]}
+                onChange={(evt) => setStrings({...strings, [item.value]: evt.target.checked})}
+                disabled={!availableStrings.find((it) => it === item.value)} />
+              <label className="filters-form__label" htmlFor={item.name}>{item.value}</label>
             </div>)
           })}
         </fieldset>
       </form>
-      <button className='filters__apply-button button button--grey' type="button">показать</button>
+      <button className='filters__apply-button button button--grey' type="button" onClick={() => onFilterButtonClick()}>показать</button>
 
     </section>
   );
 };
-
-// Filters.propTypes = {
-//   type: PropTypes.string,
-// };
 
 export default Filters;

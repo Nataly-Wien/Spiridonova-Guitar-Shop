@@ -1,5 +1,12 @@
+@import "../../sass/mixins.scss";
+
 .cards {
   grid-area: catalog;
+  min-height: 540px;
+
+  &--empty {
+    display: flex;
+  }
 }
 
 .cards-wrapper {
@@ -7,4 +14,10 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: 2.6%;
   row-gap: 30px;
+}
+
+.cards__empty-message {
+  @include font(700, 18px, 21px, 0.4px);
+
+  margin: auto;
 }

@@ -7,7 +7,7 @@ import {cardTypesValidation} from './../../types-validation/card-types-validatio
 import {GUITAR_TYPE, CART_GOODS_MAX, MODAL_POPUPS, PopupTypes, getMoneyFormat, getNum, getCorrectValue} from '../../const';
 
 const Good = ({good, goodImg}) => {
-  const [number, setNumber] = useState(1);
+  const [number, setNumber] = useState(good.count);
   const dispatch = useDispatch();
 
   const onDeleteClick = () => {
@@ -19,6 +19,11 @@ const Good = ({good, goodImg}) => {
         img: goodImg,
       },
     }));
+  };
+
+  const setGoodNumber = (count) => {
+    setNumber(count);
+    dispatch(ActionCreator.setGoodNumber({good, count}));
   };
 
   return (
@@ -33,12 +38,12 @@ const Good = ({good, goodImg}) => {
       <p className="good__price">{`${getMoneyFormat(good.price)} ₽`}</p>
       <div className="good__btn-wrapper">
         <button className="good__btn good__btn--minus" type="button"
-          onClick={() => setNumber(getCorrectValue(number - 1, 1, CART_GOODS_MAX))}>–</button>
+          onClick={() => setGoodNumber(getCorrectValue(number - 1, 1, CART_GOODS_MAX))}>–</button>
         <input className="good__btn good__btn--input" type="text" value={number}
-          onChange={(evt) => setNumber(getNum(evt.target.value))}
-          onBlur={(evt) => setNumber(getCorrectValue(getNum(evt.target.value), 1, CART_GOODS_MAX))} />
+          onChange={(evt) => setNumber(getCorrectValue(getNum(evt.target.value), 1, CART_GOODS_MAX))}
+          onBlur={(evt) => setGoodNumber(evt.target.value)} />
         <button className="good__btn good__btn--plus" type="button"
-          onClick={() => setNumber(getCorrectValue(number + 1, 1, CART_GOODS_MAX))}>+</button>
+          onClick={() => setGoodNumber(getCorrectValue(number + 1, 1, CART_GOODS_MAX))}>+</button>
       </div>
       <p className="good__sum-price">{`${getMoneyFormat(good.price * number)} ₽`}</p>
     </section>

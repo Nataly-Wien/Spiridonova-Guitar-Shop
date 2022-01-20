@@ -7,7 +7,7 @@ import {USER_NAV_ITEMS, getUserNavIcon} from '../../const';
 
 const UserNav = ({isOpen}) => {
   const {cart} = useSelector((state) => state.GOODS);
-  const basketAmount = cart.length;
+  const basketAmount = cart.reduce((sum, it) => sum = sum + it.count, 0);
 
   return (
     <ul className={`header__user-nav user-nav ${isOpen ? ` user-nav--mobile-open` : ``}`}>

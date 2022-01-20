@@ -34,10 +34,10 @@ const MessageModal = ({title, buttons, onCloseClick}) => {
   return (
     <section className="message-modal modal">
       <h2 className="modal__title">{title}</h2>
-      <div className="message-modal__btn-wrapper">
-        <Link className={`modal__btn modal__btn--${buttons[0].type} button`} ref={firstFocusTarget}
-          to={buttons[0].action} onClick={() => dispatch(ActionCreator.hideModal())}>{buttons[0].title}</Link>
-        <button className={`modal__btn modal__btn--${buttons[1].type} button`} type="button" onClick={() => dispatch(ActionCreator[buttons[1].action]())}>{buttons[1].title} </button>
+      <div className={`message-modal__btn-wrapper${buttons[0] && buttons[1] ? `` : ` message-modal__btn-wrapper--center`}`}>
+        {buttons[0] && <Link className={`modal__btn modal__btn--${buttons[0].type} button`} ref={firstFocusTarget}
+          to={buttons[0].action} onClick={() => dispatch(ActionCreator.hideModal())}>{buttons[0].title}</Link>}
+        {buttons[1] && <button className={`modal__btn modal__btn--${buttons[1].type} button`} type="button" onClick={() => dispatch(ActionCreator[buttons[1].action]())}>{buttons[1].title} </button>}
       </div>
       <button className="modal__close-btn" ref={lastFocusTarget} onClick={() => onCloseClick()}><span className="visually-hidden">Закрыть</span></button>
     </section>

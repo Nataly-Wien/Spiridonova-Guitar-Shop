@@ -23,6 +23,12 @@
   width: 36%;
   height: 36px;
   margin-right: 33px;
+  text-transform: uppercase;
+
+  &:focus {
+    border: 1px solid $rusty;
+    outline: none;
+  }
 }
 
 .promo__btn {

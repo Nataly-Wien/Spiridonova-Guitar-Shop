@@ -12,4 +12,8 @@
   display: flex;
   justify-content: space-between;
   width: 74.5%;
+
+  &--center {
+    justify-content: center;
+  }
 }

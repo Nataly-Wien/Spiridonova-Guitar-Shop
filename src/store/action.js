@@ -6,10 +6,13 @@ export const ActionType = {
 
   LOAD_GOODS: `goods/loadGoods`,
   LOAD_GOOD_IMAGES: `goods/loadGoodImages`,
+  SET_FILTERED_LIST: `goods/setFilteredList`,
   ADD_TO_CART: `goods/addToCart`,
   DELETE_FROM_CART: `goods/deleteFromCart`,
   SET_GOOD_NUMBER: `goods/setGoodNumber`,
-  SET_CART_TOTAL: `goods/setCartTotal,`
+  SET_DISCOUNT: `goods/setDiscount`,
+  SET_CURRENT_SORT: `goods/setCurrentSort`,
+  REVERSE_SORT_DIRECTION: `goods/reverseSortDirection`,
 };
 
 export const ActionCreator = {
@@ -44,6 +47,11 @@ export const ActionCreator = {
     payload,
   }),
 
+  setFilteredList: (payload) => ({
+    type: ActionType.SET_FILTERED_LIST,
+    payload,
+  }),
+
   addToCart: (payload) => ({
     type: ActionType.ADD_TO_CART,
     payload,
@@ -59,9 +67,17 @@ export const ActionCreator = {
     payload,
   }),
 
-  setCartTotal: (payload) => ({
-    type: ActionType.SET_CART_TOTAL,
+  setDiscount: (payload) => ({
+    type: ActionType.SET_DISCOUNT,
     payload,
   }),
 
+  setCurrentSort: (payload) => ({
+    type: ActionType.SET_CURRENT_SORT,
+    payload,
+  }),
+
+  reverseSortDirection: () => ({
+    type: ActionType.REVERSE_SORT_DIRECTION,
+  }),
 };

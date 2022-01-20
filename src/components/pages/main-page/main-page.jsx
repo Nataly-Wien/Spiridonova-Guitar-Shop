@@ -25,9 +25,9 @@ const MainPage = () => {
   }
 
   !isDataLoaded && dispatch(ActionCreator.loadGoods(CATALOG_LIST));
-  !isPicturesLoaded && imgRef.current && dispatch(ActionCreator.loadGoodImages(imgRef.current))
+  !isPicturesLoaded && imgRef.current && dispatch(ActionCreator.loadGoodImages(imgRef.current));
 
-  const {catalog, goodImages} = useSelector((state) => state.GOODS);
+  const {filteredList, goodImages} = useSelector((state) => state.GOODS);
 
   return (
     <div className="main-page page">
@@ -37,8 +37,8 @@ const MainPage = () => {
         <BreadCrumbs />
         <Filters />
         <Sort />
-        <Cards catalogList={catalog.slice(catalogPosition, catalogPosition + CARDS_PER_PAGE)} images={goodImages} />
-        <Pagination length={catalog.length} current={currentPage} setCurrentPage={setCurrentPage} />
+        <Cards catalogList={filteredList.slice(catalogPosition, catalogPosition + CARDS_PER_PAGE)} images={goodImages} />
+        {filteredList.length > 0 && <Pagination length={filteredList.length} current={currentPage} setCurrentPage={setCurrentPage} />}
       </main>
       <Footer />
       <Modal />

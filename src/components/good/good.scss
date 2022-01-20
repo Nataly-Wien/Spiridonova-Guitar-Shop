@@ -124,4 +124,9 @@
   &--minus {
     padding-bottom: 3px;
   }
+
+  &:focus {
+    border: 1px solid $rusty;
+    outline: none;
+  }
 }

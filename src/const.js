@@ -66,7 +66,6 @@ export const getUserNavIcon = (name) => {
     default: return;
   }
 };
-
 export const CATALOG_MENU_ITEMS = [
   {
     name: `Акустические гитары`,
@@ -131,32 +130,35 @@ export const FILTER_TYPE_DATA = [
   {
     text: `Акустические гитары`,
     name: `acoustic`,
+    strings: [6, 7, 12],
   },
   {
     text: `Электрогитары`,
     name: `electro`,
+    strings: [4, 6, 7],
   },
   {
     text: `Укулеле`,
     name: `ukulele`,
+    strings: [4],
   },
 ];
 
 export const FILTER_STRINGS_DATA = [
   {
-    text: `4`,
+    value: 4,
     name: `four`,
   },
   {
-    text: `6`,
+    value: 6,
     name: `six`,
   },
   {
-    text: `7`,
+    value: 7,
     name: `seven`,
   },
   {
-    text: `12`,
+    value: 12,
     name: `twelve`,
   },
 ];
@@ -259,7 +261,7 @@ export const CATALOG_LIST = [
     reviews: 27,
     picture: `electro_4.png`,
     type: `electro`,
-    strings: 12,
+    strings: 4,
   },
   {
     title: `Виолана 300`,
@@ -295,7 +297,7 @@ export const CATALOG_LIST = [
     title: `Честер Bass 300`,
     artNumber: `DF098467`,
     price: 5000,
-    rating: 4.3,
+    rating: 3.3,
     reviews: 5,
     picture: `electro_1.png`,
     type: `electro`,
@@ -315,7 +317,7 @@ export const CATALOG_LIST = [
     title: `Честер Bass 500`,
     artNumber: `AL240184`,
     price: 3500,
-    rating: 4.3,
+    rating: 2.2,
     reviews: 5,
     picture: `electro_1.png`,
     type: `electro`,
@@ -325,7 +327,7 @@ export const CATALOG_LIST = [
     title: `Честер Bass`,
     artNumber: `GH145621`,
     price: 17500,
-    rating: 4.3,
+    rating: 3.3,
     reviews: 15,
     picture: `electro_1.png`,
     type: `electro`,
@@ -345,7 +347,7 @@ export const CATALOG_LIST = [
     title: `Roman LX`,
     artNumber: `RL540098`,
     price: 6800,
-    rating: 4,
+    rating: 2.8,
     reviews: 21,
     picture: `ukulele_1.png`,
     type: `ukulele`,
@@ -365,7 +367,7 @@ export const CATALOG_LIST = [
     title: `Dania Super`,
     artNumber: `DD541123`,
     price: 3500,
-    rating: 4.3,
+    rating: 3.3,
     reviews: 5,
     picture: `ukulele_2.png`,
     type: `acoustic`,
@@ -395,17 +397,17 @@ export const CATALOG_LIST = [
     title: `Честер Plus`,
     artNumber: `DW002366`,
     price: 30000,
-    rating: 5,
+    rating: 3.2,
     reviews: 27,
     picture: `electro_4.png`,
     type: `electro`,
-    strings: 12,
+    strings: 4,
   },
   {
     title: `Виолана 300`,
     artNumber: `GJ254113`,
     price: 1700,
-    rating: 4,
+    rating: 4.3,
     reviews: 3,
     picture: `ukulele_2.png`,
     type: `acoustic`,
@@ -429,7 +431,7 @@ export const CATALOG_LIST = [
     reviews: 5,
     picture: `ukulele_2.png`,
     type: `acoustic`,
-    strings: 7,
+    strings: 12,
   },
   {
     title: `Честер Bass 300`,
@@ -629,7 +631,7 @@ export const CATALOG_LIST = [
     reviews: 27,
     picture: `electro_4.png`,
     type: `electro`,
-    strings: 12,
+    strings: 7,
   },
   {
     title: `Виолана 300`,
@@ -708,6 +710,7 @@ export const PopupTypes = {
   CART_ADD: `CART_ADD`,
   CART_DELETE: `CART_DELETE`,
   CART_SUCCESS: `CART_SUCCESS`,
+  PROMO_UNSUCCESS: `PROMO_UNSUCCESS`,
 }
 
 export const MODAL_POPUPS = {
@@ -756,4 +759,40 @@ export const MODAL_POPUPS = {
     ],
     link: `.message-modal`,
   },
+  promoUnsuccess: {
+    title: `Промокод не действителен`,
+    buttons: [null,
+      {
+        title: `Продолжить покупки`,
+        type: `white`,
+        action: `hideModal`,
+      },
+    ],
+    link: `.message-modal`,
+  },
+};
+
+
+export const PROMO_CODES = [
+  {
+    promo: `GITARAHIT`,
+    discountPercent: 0.1,
+    discountRoubles: 0,
+  },
+  {
+    promo: `SUPERGITARA`,
+    discountPercent: 0,
+    discountRoubles: 700,
+  },
+  {
+    promo: `GITARA2020`,
+    discountPercent: 0.3,
+    discountRoubles: 3000,
+  },
+];
+
+export const Sorts = {
+  NONE: `NONE`,
+  PRICE: `PRICE`,
+  POPULARITY: `POPULARITY`,
 };
