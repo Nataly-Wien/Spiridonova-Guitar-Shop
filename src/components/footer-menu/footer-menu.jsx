@@ -9,7 +9,7 @@ const FooterMenu = ({title, menuItems, type}) => {
       <ul className="footer-menu__list">
         {menuItems.map((item) => {
           return (<li className="footer-menu__item" key={item.name}>
-            <a className="footer-menu__link" href={`#${item.link}`}>{item.name}</a>
+            <a className="footer-menu__link" href={item.link}>{item.name}</a>
           </li>)
         })}
       </ul>

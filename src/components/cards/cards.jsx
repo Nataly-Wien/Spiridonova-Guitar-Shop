@@ -13,7 +13,7 @@ const Cards = ({catalogList, images}) => {
           return (< Card item={item} img={images[item.picture]} key={item.artNumber} />);
         })}
       </div>}
-      {!catalogList.length && <h3 className="cards__empty-message">Мы не смогли подобрать товары с такими характеристиками</h3>}
+      {!catalogList.length > 0 && <h3 className="cards__empty-message">Мы не смогли подобрать товары с такими характеристиками</h3>}
     </section>
   );
 };

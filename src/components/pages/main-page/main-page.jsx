@@ -1,5 +1,5 @@
 import './main-page.scss';
-import React, {useState, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {ActionCreator} from '../../../store/action';
 import Header from '../../header/header';
@@ -28,6 +28,10 @@ const MainPage = () => {
   !isPicturesLoaded && imgRef.current && dispatch(ActionCreator.loadGoodImages(imgRef.current));
 
   const {filteredList, goodImages} = useSelector((state) => state.GOODS);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filteredList]);
 
   return (
     <div className="main-page page">

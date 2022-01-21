@@ -3,9 +3,9 @@
 
 .good {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 4.7% 11.7% 35% 15% 17% 16.6%;
   margin-bottom: 25px;
 
   &::before,
@@ -29,6 +29,9 @@
 .good__delete-btn {
   position: relative;
   display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-top: 12px;
   border: none;
   background-color: $white;
   cursor: pointer;
@@ -39,7 +42,7 @@
 
     width: 16px;
     height: 1.5px;
-    top: 22px;
+    top: 10px;
     left: 2px;
     background-color: $grey;
   }
@@ -51,6 +54,19 @@
   &::after {
     transform: rotate(-45deg);
   }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 1px solid $box-stroke-gray;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    background-color: $dark;
+  }
 }
 
 .good__img {
@@ -58,18 +74,17 @@
   width: 48px;
   height: 124px;
   margin-top: 15px;
-  margin-left: -50px;
 }
 
 .good__title-wrapper {
-  margin-left: -17px;
+  margin-left: 6px;
 }
 
 .good__title {
   @include reset-indent;
   @include font(700, 16px, 20px, 1.2px);
 
-  margin: 12px 0 10px 0;
+  margin: 12px 0 10px;
   text-transform: uppercase;
 }
 
@@ -85,23 +100,26 @@
   @include reset-indent;
 
   align-self: center;
-  margin-left: 10px;
+  justify-self: right;
+  margin-right: 22px;
   margin-top: 20px;
 }
 
 .good__sum-price {
-  @include font(700, 20px, 20px, 1px);
+  @include font(700, 20px, 20px, 1.1px);
   @include reset-indent;
 
   align-self: center;
+  justify-self: right;
   margin-top: 20px;
-
 }
 
 .good__btn-wrapper {
   display: flex;
+  justify-self: right;
   align-self: center;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
+  margin-right: 13px;
 }
 
 .good__btn {
@@ -125,8 +143,12 @@
     padding-bottom: 3px;
   }
 
+  &:hover {
+    border-color: $dark;
+  }
+
   &:focus {
-    border: 1px solid $rusty;
+    border-color: $rusty;
     outline: none;
   }
 }

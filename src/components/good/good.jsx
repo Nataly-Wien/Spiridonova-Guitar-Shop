@@ -10,7 +10,7 @@ const Good = ({good, goodImg}) => {
   const [number, setNumber] = useState(good.count);
   const dispatch = useDispatch();
 
-  const onDeleteClick = () => {
+  const handleDeleteClick = () => {
     dispatch(ActionCreator.showModal({
       modalType: PopupTypes.CART_DELETE,
       modalProps: {
@@ -28,7 +28,9 @@ const Good = ({good, goodImg}) => {
 
   return (
     <section className="good" key={good.title}>
-      <button className="good__delete-btn" type="button" onClick={() => onDeleteClick()}></button>
+      <button className="good__delete-btn" type="button" onClick={() => handleDeleteClick()}>
+        <span className="visually-hidden">Удалить товар</span>
+      </button>
       <img className="good__img" src={goodImg} alt={`Фото ${good.title}`} width="68" height="190" />
       <div className="good__title-wrapper">
         <h3 className="good__title">{`${GUITAR_TYPE[good.type]} ${good.title}`}</h3>
@@ -38,12 +40,16 @@ const Good = ({good, goodImg}) => {
       <p className="good__price">{`${getMoneyFormat(good.price)} ₽`}</p>
       <div className="good__btn-wrapper">
         <button className="good__btn good__btn--minus" type="button"
-          onClick={() => setGoodNumber(getCorrectValue(number - 1, 1, CART_GOODS_MAX))}>–</button>
+          onClick={() => setGoodNumber(getCorrectValue(number - 1, 1, CART_GOODS_MAX))}>–
+          <span className="visually-hidden">Уменьшить количество</span>
+        </button>
         <input className="good__btn good__btn--input" type="text" value={number}
           onChange={(evt) => setNumber(getCorrectValue(getNum(evt.target.value), 1, CART_GOODS_MAX))}
-          onBlur={(evt) => setGoodNumber(evt.target.value)} />
+          onBlur={(evt) => setGoodNumber(+evt.target.value)} />
         <button className="good__btn good__btn--plus" type="button"
-          onClick={() => setGoodNumber(getCorrectValue(number + 1, 1, CART_GOODS_MAX))}>+</button>
+          onClick={() => setGoodNumber(getCorrectValue(number + 1, 1, CART_GOODS_MAX))}>+
+          <span className="visually-hidden">Увеличить количество</span>
+        </button>
       </div>
       <p className="good__sum-price">{`${getMoneyFormat(good.price * number)} ₽`}</p>
     </section>

@@ -24,7 +24,7 @@ const Modal = () => {
   };
 
   const handleMouseDown = (evt) => {
-    if (!evt.target.closest(modalProps.link)) {
+    if (modalType && !evt.target.closest(modalProps.link)) {
       handleModalClose();
     }
   };

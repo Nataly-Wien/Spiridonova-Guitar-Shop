@@ -7,10 +7,19 @@ const initialState = {
   sortRule: (a, b) => 0,
   isLowToHigh: true,
   cart: [],
-  discountPercent: 0,
-  discountRoubles: 0,
+  promoDiscount: {
+    percent: 0,
+    roubles: 0,
+    promo: ``,
+  },
   isDataLoaded: false,
   isPicturesLoaded: false,
+  filters: {
+    priceFrom: 0,
+    priceTo: 0,
+    type: undefined,
+    strings: undefined,
+  },
 };
 
 const goods = (state = initialState, action) => {
@@ -18,8 +27,8 @@ const goods = (state = initialState, action) => {
     case ActionType.LOAD_GOODS:
       return {
         ...state,
-        catalog: action.payload,
-        filteredList: action.payload,
+        catalog: [...action.payload],
+        filteredList: [...action.payload],
         isDataLoaded: true,
       };
     case ActionType.LOAD_GOOD_IMAGES:
@@ -31,7 +40,7 @@ const goods = (state = initialState, action) => {
     case ActionType.SET_FILTERED_LIST:
       return {
         ...state,
-        filteredList: action.payload,
+        filteredList: [...action.payload],
       };
     case ActionType.ADD_TO_CART:
       return {
@@ -57,12 +66,17 @@ const goods = (state = initialState, action) => {
       return {
         ...state,
         sortRule: action.payload,
-        filteredList: state.filteredList.sort(action.payload),
+        filteredList: [...state.filteredList.sort(action.payload)],
       };
-    case ActionType.REVERSE_SORT_DIRECTION:
+    case ActionType.SET_DISCOUNT:
       return {
         ...state,
-        filteredList: state.filteredList.reverse(),
+        promoDiscount: action.payload,
+      };
+    case ActionType.SET_FILTERS:
+      return {
+        ...state,
+        filters: action.payload,
       };
 
     default: return state;

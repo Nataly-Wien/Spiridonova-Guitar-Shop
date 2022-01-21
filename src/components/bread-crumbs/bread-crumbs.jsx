@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import './bread-crumbs.scss';
 import React from "react";
 import {useLocation} from "react-router";

@@ -10,7 +10,7 @@ const CartModal = ({title, type, buttons, good, img, onCloseClick}) => {
 
   const dispatch = useDispatch();
 
-  const onAddBtnClick = () => {
+  const handleAddBtnClick = () => {
     dispatch(ActionCreator.addToCart(good));
     dispatch(ActionCreator.showModal({
       modalType: PopupTypes.CART_SUCCESS,
@@ -18,7 +18,7 @@ const CartModal = ({title, type, buttons, good, img, onCloseClick}) => {
     }));
   };
 
-  const onDeleteBtnClick = () => {
+  const handleDeleteBtnClick = () => {
     dispatch(ActionCreator.deleteFromCart(good));
     dispatch(ActionCreator.hideModal());
   }
@@ -59,7 +59,7 @@ const CartModal = ({title, type, buttons, good, img, onCloseClick}) => {
         </div>
         <div className="cart-modal__btn-wrapper">
           <button className={`modal__btn modal__btn--${buttons[0].type} button`} type="button" ref={firstFocusTarget}
-            onClick={type === PopupTypes.CART_ADD ? () => onAddBtnClick() : () => onDeleteBtnClick()}>{buttons[0].title}</button>
+            onClick={type === PopupTypes.CART_ADD ? () => handleAddBtnClick() : () => handleDeleteBtnClick()}>{buttons[0].title}</button>
           {buttons[1] && <button className={`modal__btn modal__btn--${buttons[1].type} button`} type="button"
             onClick={() => dispatch(ActionCreator[buttons[1].action]())}>{buttons[1].title}</button>}
         </div>

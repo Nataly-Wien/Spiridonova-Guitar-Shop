@@ -87,6 +87,7 @@
   position: relative;
   padding-left: 43px;
   letter-spacing: 0.4px;
+  cursor: pointer;
 
   &::before {
     @include pseudo;
@@ -97,6 +98,7 @@
     left: 3px;
     border: 1px solid $box-stroke-gray;
     background-color: transparent;
+    cursor: pointer;
 
     input[type=checkbox]:hover ~ & {
       border:  1px solid $box-stroke-gray-hover;

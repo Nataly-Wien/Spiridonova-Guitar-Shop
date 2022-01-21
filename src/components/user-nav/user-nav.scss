@@ -9,12 +9,12 @@
   align-items: baseline;
   flex-wrap: wrap;
   margin-top: 17px;
-  margin-right: -5px;
+  margin-right: -10px;
 }
 
 .user-nav__item {
   margin: 0;
-  margin-right: 15px;
+  margin-right: 16px;
 
   &:last-child {
     margin-right: 0;
@@ -24,9 +24,9 @@
 .user-nav__link {
   @include font(normal, 14px, 20px);
 
-  height: 20px;
+  height: 40px;
   display: flex;
-  padding: 10px;
+  padding: 10px 8px;
 
   &:hover path {
     fill: $dark;

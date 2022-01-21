@@ -12,7 +12,7 @@ export const ActionType = {
   SET_GOOD_NUMBER: `goods/setGoodNumber`,
   SET_DISCOUNT: `goods/setDiscount`,
   SET_CURRENT_SORT: `goods/setCurrentSort`,
-  REVERSE_SORT_DIRECTION: `goods/reverseSortDirection`,
+  SET_FILTERS: `goods/seFilters`,
 };
 
 export const ActionCreator = {
@@ -77,7 +77,8 @@ export const ActionCreator = {
     payload,
   }),
 
-  reverseSortDirection: () => ({
-    type: ActionType.REVERSE_SORT_DIRECTION,
+  seFilters: (payload) => ({
+    type: ActionType.SET_FILTERS,
+    payload,
   }),
 };

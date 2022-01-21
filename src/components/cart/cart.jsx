@@ -7,12 +7,14 @@ import Promo from './../promo/promo';
 import {getMoneyFormat} from '../../const';
 
 const Cart = () => {
-  const {cart, goodImages, discountPercent, discountRoubles} = useSelector((state) => state.GOODS);
+  const {cart, goodImages, promoDiscount} = useSelector((state) => state.GOODS);
   const total = cart.reduce((sum, item) => sum + item.price * item.count, 0);
-  const discount = discountPercent * discountRoubles ? Math.min(discountPercent * total, discountRoubles) : Math.max(discountPercent * total, discountRoubles);
+  const discount = promoDiscount.percent * promoDiscount.roubles ? Math.min(promoDiscount.percent * total, promoDiscount.roubles) : Math.max(promoDiscount.percent * total, promoDiscount.roubles);
+  const totalPrice = total > 0 ? total - discount : total;
 
   return (
     <section className="cart">
+      <h2 className="visually-hidden">Сейчас в корзине</h2>
       <ul className="cart__list">
         {cart.map((item) => {
           return (
@@ -23,9 +25,9 @@ const Cart = () => {
         })}
       </ul>
       <div className="cart__wrapper">
-        <Promo />
-        <div className="total__wrapper">
-          <p className="cart__total">{`Всего: ${getMoneyFormat(total - discount)} ₽`}</p>
+        <Promo code={promoDiscount.promo} />
+        <div className="cart__total-wrapper">
+          <p className="cart__total">{`Всего: ${getMoneyFormat(totalPrice)} ₽`}</p>
           <Link className="cart__order-button button button--rusty" to="#">Оформить заказ</Link>
         </div>
       </div>

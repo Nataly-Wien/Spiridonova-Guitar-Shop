@@ -17,6 +17,7 @@
   @include font(400, 16px, 20px, 1px);
 
   color: $dark;
+  padding: 1px 4px;
 
   &--up {
     transform: rotate(180deg);
@@ -41,7 +42,6 @@
   }
 
   &:focus {
-    // outline: 1px solid $box-stroke-gray;
-    outline: none;
+    outline: 1px solid $outline;
   }
 }

@@ -7,7 +7,7 @@ const Pagination = ({length, current, setCurrentPage}) => {
   const pagesNumber = length / CARDS_PER_PAGE === Math.floor(length / CARDS_PER_PAGE) ? Math.floor(length / CARDS_PER_PAGE) : Math.floor(length / CARDS_PER_PAGE) + 1;
   return (
     <section className="pagination">
-      <h2 className="visually-hidden">Страницы каталога</h2>
+      <h2 className="visually-hidden">Перейти на страницу каталога</h2>
       {current > 1 && <button className="pagination__button pagination__button--direction" type="button" onClick={() => setCurrentPage(current - 1)}>Назад</button>}
       <button className={`pagination__button${current === 1 ? ` pagination__button--current` : ``}`} type="button" onClick={() => current === 1 ? () => { } : setCurrentPage(1)}>1</button>
       {current === 1 && pagesNumber > 2 && <button className="pagination__button" type="button" onClick={() => setCurrentPage(2)}>{`2`}</button>}

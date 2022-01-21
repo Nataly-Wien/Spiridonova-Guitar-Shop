@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom';
 const Card = ({item, img}) => {
   const dispatch = useDispatch();
 
-  const onBuyClick = () => {
+  const handleBuyClick = () => {
     dispatch(ActionCreator.showModal({
       modalType: PopupTypes.CART_ADD,
       modalProps: {...MODAL_POPUPS.cartAdd, good: item, img: img},
@@ -21,7 +21,7 @@ const Card = ({item, img}) => {
     <section className="card" key={item.title}>
       <div className="card__buttons-wrapper">
         <Link className="card__button button button--grey" to="#">Подробнее</Link>
-        <button className="card__button button button--rusty" type="button" onClick={() => onBuyClick()}>
+        <button className="card__button button button--rusty" type="button" onClick={() => handleBuyClick()}>
           <span className="card__buy-icon"></span>
           Купить
         </button>

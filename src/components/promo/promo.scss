@@ -20,10 +20,11 @@
   @include font(400, 16px, 20px, 1.2px);
 
   font-family: inherit;
-  width: 36%;
+  width: 170px;
   height: 36px;
   margin-right: 33px;
   text-transform: uppercase;
+  text-align: center;
 
   &:focus {
     border: 1px solid $rusty;
