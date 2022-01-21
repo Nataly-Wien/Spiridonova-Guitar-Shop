@@ -26,6 +26,10 @@ const Good = ({good, goodImg}) => {
     dispatch(ActionCreator.setGoodNumber({good, count}));
   };
 
+  const handleMinusClick = () => {
+    number === 1 ? handleDeleteClick() : setGoodNumber(getCorrectValue(number - 1, 1, CART_GOODS_MAX));
+  }
+
   return (
     <section className="good" key={good.title}>
       <button className="good__delete-btn" type="button" onClick={() => handleDeleteClick()}>
@@ -40,7 +44,7 @@ const Good = ({good, goodImg}) => {
       <p className="good__price">{`${getMoneyFormat(good.price)} ₽`}</p>
       <div className="good__btn-wrapper">
         <button className="good__btn good__btn--minus" type="button"
-          onClick={() => setGoodNumber(getCorrectValue(number - 1, 1, CART_GOODS_MAX))}>–
+          onClick={() => handleMinusClick()}>–
           <span className="visually-hidden">Уменьшить количество</span>
         </button>
         <input className="good__btn good__btn--input" type="text" value={number}

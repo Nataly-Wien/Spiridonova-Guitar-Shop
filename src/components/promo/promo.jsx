@@ -20,7 +20,7 @@ const Promo = ({code}) => {
   const handleApplyClick = () => {
     if (!promo.trim()) return;
 
-    const code = PROMO_CODES.find((it) => it.promo === promo.trim());
+    const code = PROMO_CODES.find((it) => it.promo === promo.toUpperCase().trim());
 
     return code ? dispatch(ActionCreator.setDiscount(code)) : promoUnsuccess();
   };
