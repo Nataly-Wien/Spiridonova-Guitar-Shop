@@ -5,15 +5,17 @@ import {ActionCreator} from '../../store/action';
 import {FILTER_TYPE_DATA, FILTER_STRINGS_DATA, getMoneyFormat, getNum, getCorrectValue} from '../../const';
 
 const Filters = () => {
-  const {catalog, sortRule, filters} = useSelector((state) => state.GOODS);
+  const {catalog} = useSelector((state) => state.GOODS);
+  const {sortRule} = useSelector((state) => state.GOODS);
+  const {filters} = useSelector((state) => state.GOODS);
 
   const dispatch = useDispatch();
 
-  const cataloPriceMin = useMemo(() => catalog.reduce((min, it) => min > it.price ? it.price : min, catalog[0].price), [catalog]);
-  const cataloPriceMax = useMemo(() => catalog.reduce((max, it) => max < it.price ? it.price : max, catalog[0].price), [catalog]);
+  const catalogPriceMin = useMemo(() => catalog.reduce((min, it) => min > it.price ? it.price : min, catalog[0].price), [catalog]);
+  const catalogPriceMax = useMemo(() => catalog.reduce((max, it) => max < it.price ? it.price : max, catalog[0].price), [catalog]);
 
-  const [priceFrom, setPiceFrom] = useState(filters.priceFrom !== 0 ? filters.priceFrom : cataloPriceMin);
-  const [priceTo, setPiceTo] = useState(filters.priceTo !== 0 ? filters.priceTo : cataloPriceMax);
+  const [priceFrom, setPriceFrom] = useState(filters.priceFrom !== 0 ? filters.priceFrom : catalogPriceMin);
+  const [priceTo, setPriceTo] = useState(filters.priceTo !== 0 ? filters.priceTo : catalogPriceMax);
 
   const [type, setType] = useState(filters.type ? filters.type : {
     acoustic: true,
@@ -37,8 +39,7 @@ const Filters = () => {
 
   useEffect(() => {
     dispatch(ActionCreator.seFilters({priceFrom, priceTo, type, strings}));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [priceFrom, priceTo, type, strings]);
+  }, [priceFrom, priceTo, type, strings, dispatch]);
 
   return (
     <section className="filters">
@@ -49,13 +50,13 @@ const Filters = () => {
           <legend className="filters-form__legend">Цена, ₽</legend>
           <label htmlFor="min-price" className="visually-hidden">от</label>
           <input className="filters-form__input" type="text" id="min-price" value={getMoneyFormat(priceFrom)}
-            onChange={(evt) => setPiceFrom(getNum(evt.target.value))}
-            onBlur={(evt) => setPiceFrom(getCorrectValue(getNum(evt.target.value), cataloPriceMin, priceTo))} />
+            onChange={(evt) => setPriceFrom(getNum(evt.target.value))}
+            onBlur={(evt) => setPriceFrom(getCorrectValue(getNum(evt.target.value), catalogPriceMin, priceTo))} />
           <span>—</span>
           <label htmlFor="max-price" className="visually-hidden">до</label>
           <input className="filters-form__input" type="text" id="max-price" value={getMoneyFormat(priceTo)}
-            onChange={(evt) => setPiceTo(getNum(evt.target.value))}
-            onBlur={(evt) => setPiceTo(getCorrectValue(getNum(evt.target.value), priceFrom, cataloPriceMax))} />
+            onChange={(evt) => setPriceTo(getNum(evt.target.value))}
+            onBlur={(evt) => setPriceTo(getCorrectValue(getNum(evt.target.value), priceFrom, catalogPriceMax))} />
         </fieldset>
         <fieldset className="filters-form__fieldset filters-form__fieldset--checkbox">
           <legend className="filters-form__legend">Тип гитар</legend>
@@ -79,7 +80,7 @@ const Filters = () => {
           })}
         </fieldset>
       </form>
-      <button className='filters__apply-button button button--grey' type="button" onClick={() => handleFilterButtonClick()}>показать</button>
+      <button className='filters__apply-button button button--grey' type="button" onClick={handleFilterButtonClick}>показать</button>
     </section>
   );
 };

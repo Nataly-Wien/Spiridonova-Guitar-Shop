@@ -41,6 +41,7 @@
 
 .bread-crumbs__link {
   @include font(400, 16px, 19px, 0.5px);
+  @include reset-indent;
 
   display: block;
   padding: 10px 12px;

@@ -2,9 +2,11 @@ import './cart-modal.scss';
 import React, {useEffect, useRef} from 'react';
 import {useDispatch} from 'react-redux';
 import {ActionCreator} from '../../store/action';
+import PropTypes from 'prop-types';
+import {cardTypesValidation} from './../../types-validation/card-types-validation';
 import {GUITAR_TYPE, getMoneyFormat, MODAL_POPUPS, PopupTypes} from '../../const';
 
-const CartModal = ({title, type, buttons, good, img, onCloseClick}) => {
+const CartModal = ({title, type, buttons, good, onCloseClick}) => {
   const firstFocusTarget = useRef(null);
   const lastFocusTarget = useRef(null);
 
@@ -49,7 +51,7 @@ const CartModal = ({title, type, buttons, good, img, onCloseClick}) => {
       <h2 className="modal__title">{title}</h2>
       <div className="cart-modal__wrapper">
         <div className="cart-modal__card-wrapper">
-          <img className="cart-modal__img" src={img} alt={`Фото ${good.title}`} />
+          <img className="cart-modal__img" src={good.picture} alt={`Фото ${good.title}`} />
           <div className="cart-modal__good-wrapper">
             <h3 className="cart-modal__good-title">{`Гитара ${good.title}`}</h3>
             <p className="cart-modal__good-info">{`Артикул: ${good.artNumber}`}</p>
@@ -64,9 +66,21 @@ const CartModal = ({title, type, buttons, good, img, onCloseClick}) => {
             onClick={() => dispatch(ActionCreator[buttons[1].action]())}>{buttons[1].title}</button>}
         </div>
       </div>
-      <button className="modal__close-btn" ref={lastFocusTarget} onClick={() => onCloseClick()}><span className="visually-hidden">Закрыть</span></button>
+      <button className="modal__close-btn" ref={lastFocusTarget} onClick={onCloseClick}><span className="visually-hidden">Закрыть</span></button>
     </section>
   );
+};
+
+CartModal.propTypes = {
+  title: PropTypes.string,
+  type: PropTypes.string,
+  buttons: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    type: PropTypes.string,
+    action: PropTypes.string,
+  })),
+  good: cardTypesValidation,
+  onCloseClick: PropTypes.func,
 };
 
 export default CartModal;

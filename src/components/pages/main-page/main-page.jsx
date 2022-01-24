@@ -10,24 +10,19 @@ import Sort from '../../sort/sort';
 import Cards from '../../cards/cards';
 import Pagination from '../../pagination/pagination';
 import Modal from '../../modal/modal';
-import {CATALOG_LIST, CARDS_PER_PAGE, loadImages} from '../../../const';
+import {CARDS_PER_PAGE, Pages} from '../../../const';
+import {CATALOG_LIST} from '../../../mock';
 
 const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const catalogPosition = (currentPage - 1) * CARDS_PER_PAGE;
 
-  const {isDataLoaded, isPicturesLoaded} = useSelector((state) => state.GOODS);
+  const {isDataLoaded} = useSelector((state) => state.GOODS);
   const dispatch = useDispatch();
-  const imgRef = useRef(null);
-
-  if (imgRef.current === null) {
-    imgRef.current = loadImages();
-  }
 
   !isDataLoaded && dispatch(ActionCreator.loadGoods(CATALOG_LIST));
-  !isPicturesLoaded && imgRef.current && dispatch(ActionCreator.loadGoodImages(imgRef.current));
 
-  const {filteredList, goodImages} = useSelector((state) => state.GOODS);
+  const {filteredList} = useSelector((state) => state.GOODS);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -35,16 +30,16 @@ const MainPage = () => {
 
   return (
     <div className="main-page page">
-      <Header />
+      <Header page={Pages.MAIN} />
       <main className="main container">
         <h1 className="main__title">Каталог гитар</h1>
         <BreadCrumbs />
         <Filters />
         <Sort />
-        <Cards catalogList={filteredList.slice(catalogPosition, catalogPosition + CARDS_PER_PAGE)} images={goodImages} />
+        <Cards catalogList={filteredList.slice(catalogPosition, catalogPosition + CARDS_PER_PAGE)} />
         {filteredList.length > 0 && <Pagination length={filteredList.length} current={currentPage} setCurrentPage={setCurrentPage} />}
       </main>
-      <Footer />
+      <Footer page={Pages.MAIN} />
       <Modal />
     </div >
   );

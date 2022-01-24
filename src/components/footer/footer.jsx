@@ -1,17 +1,18 @@
 import './footer.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../logo/logo';
 import Social from '../social/social';
 import FooterMenu from '../footer-menu/footer-menu';
 import {LogoTypes, CATALOG_MENU_ITEMS, FOOTER_INFO_ITEMS} from '../../const';
 
-const Footer = () => {
+const Footer = ({page}) => {
   return (
     <footer className="footer">
       <div className="footer__decor"></div>
       <div className="footer__content">
         <div className="footer__wrapper container">
-          <Logo type={LogoTypes.FOOTER} />
+          <Logo type={LogoTypes.FOOTER} page={page} />
           <section className="footer__social">
             <h3 className="visually-hidden">Мы в социальных сетях</h3>
             <Social />
@@ -46,6 +47,10 @@ const Footer = () => {
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  page: PropTypes.string,
 };
 
 export default Footer;

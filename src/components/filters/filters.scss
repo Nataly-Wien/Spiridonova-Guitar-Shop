@@ -99,18 +99,18 @@
     border: 1px solid $box-stroke-gray;
     background-color: transparent;
     cursor: pointer;
+  }
 
-    input[type=checkbox]:hover ~ & {
-      border:  1px solid $box-stroke-gray-hover;
-    }
+  input[type=checkbox]:hover ~ &::before {
+    border:  1px solid $box-stroke-gray-hover;
+  }
 
-    input[type=checkbox]:focus ~ & {
-      outline: 1px solid $rusty;
-    }
+  input[type=checkbox]:focus ~ &::before {
+    outline: 1px solid $rusty;
+  }
 
-    input[type=checkbox]:active ~ & {
-      border: 1px solid $box-stroke-gray-active;
-    }
+  input[type=checkbox]:active ~ &::before {
+    border: 1px solid $box-stroke-gray-active;
   }
 
   input[type=checkbox]:checked ~ &::before {

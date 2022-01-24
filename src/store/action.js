@@ -5,7 +5,6 @@ export const ActionType = {
   SET_MODAL_FILTERS_OPEN: `appearance/setModalFiltersOpen`,
 
   LOAD_GOODS: `goods/loadGoods`,
-  LOAD_GOOD_IMAGES: `goods/loadGoodImages`,
   SET_FILTERED_LIST: `goods/setFilteredList`,
   ADD_TO_CART: `goods/addToCart`,
   DELETE_FROM_CART: `goods/deleteFromCart`,
@@ -39,11 +38,6 @@ export const ActionCreator = {
 
   loadGoods: (payload) => ({
     type: ActionType.LOAD_GOODS,
-    payload,
-  }),
-
-  loadGoodImages: (payload) => ({
-    type: ActionType.LOAD_GOOD_IMAGES,
     payload,
   }),
 

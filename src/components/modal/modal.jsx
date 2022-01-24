@@ -10,7 +10,9 @@ import {PopupTypes} from '../../const';
 const Modal = () => {
   const [blockScroll, allowScroll] = useScrollBlock();
 
-  const {modalType, modalProps} = useSelector((state) => state.APPEARANCE);
+  const {modalType} = useSelector((state) => state.APPEARANCE);
+  const {modalProps} = useSelector((state) => state.APPEARANCE);
+
   const dispatch = useDispatch();
 
   const handleModalClose = () => {
@@ -45,8 +47,7 @@ const Modal = () => {
     return () => {
       allowScroll();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modalType]);
+  }, [modalType, blockScroll, allowScroll]);
 
   if (!modalType) {
     return null;

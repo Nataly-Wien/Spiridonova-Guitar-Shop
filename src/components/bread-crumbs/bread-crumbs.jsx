@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import './bread-crumbs.scss';
 import React from "react";
 import {useLocation} from "react-router";
@@ -10,6 +9,7 @@ const BreadCrumbs = () => {
 
   const getCrumbs = (path) => {
     let crumbs = [];
+
     while (path.length > 1) {
       const crumb = path.slice(path.lastIndexOf(`/`) + 1);
       crumbs.unshift({
@@ -18,6 +18,7 @@ const BreadCrumbs = () => {
       });
       path = path.slice(0, path.lastIndexOf(`/`));
     };
+
     crumbs.unshift({
       href: `/`,
       title: BREAD_CRUMBS.root,
@@ -35,7 +36,7 @@ const BreadCrumbs = () => {
           </li>
           :
           <li className={`bread-crumbs__item`} key={`${item}`}>
-            <a className={`bread-crumbs__link`}>{`${item.title}`}</a>
+            <p className={`bread-crumbs__link`}>{`${item.title}`}</p>
           </li>
         );
       })}

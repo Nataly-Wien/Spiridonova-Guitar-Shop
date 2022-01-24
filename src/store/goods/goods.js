@@ -2,7 +2,6 @@ import {ActionType} from '../action';
 
 const initialState = {
   catalog: [],
-  goodImages: {},
   filteredList: [],
   sortRule: (a, b) => 0,
   isLowToHigh: true,
@@ -13,7 +12,6 @@ const initialState = {
     promo: ``,
   },
   isDataLoaded: false,
-  isPicturesLoaded: false,
   filters: {
     priceFrom: 0,
     priceTo: 0,
@@ -30,12 +28,6 @@ const goods = (state = initialState, action) => {
         catalog: [...action.payload],
         filteredList: [...action.payload],
         isDataLoaded: true,
-      };
-    case ActionType.LOAD_GOOD_IMAGES:
-      return {
-        ...state,
-        goodImages: action.payload,
-        isPicturesLoaded: true,
       };
     case ActionType.SET_FILTERED_LIST:
       return {

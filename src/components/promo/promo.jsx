@@ -31,7 +31,7 @@ const Promo = ({code}) => {
       <p className="promo__text">Введите свой промокод, если он у вас есть.</p>
       <div className="promo__wrapper">
         <input className="promo__input" type="text" value={promo} onChange={(evt) => setPromo(evt.target.value)} />
-        <button className="promo__btn button button--grey" type="button" onClick={() => handleApplyClick()}>Применить купон</button>
+        <button className="promo__btn button button--grey" type="button" onClick={handleApplyClick}>Применить купон</button>
       </div>
     </section>
   );
