@@ -5,9 +5,9 @@ import {ActionCreator} from '../../store/action';
 import {FILTER_TYPE_DATA, FILTER_STRINGS_DATA, getMoneyFormat, getNum, getCorrectValue} from '../../const';
 
 const Filters = () => {
-  const {catalog} = useSelector((state) => state.GOODS);
-  const {sortRule} = useSelector((state) => state.GOODS);
-  const {filters} = useSelector((state) => state.GOODS);
+  const catalog = useSelector((state) => state.GOODS.catalog);
+  const sortRule = useSelector((state) => state.GOODS.sortRule);
+  const filters = useSelector((state) => state.GOODS.filters);
 
   const dispatch = useDispatch();
 

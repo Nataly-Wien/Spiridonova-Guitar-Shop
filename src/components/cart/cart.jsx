@@ -7,8 +7,8 @@ import Promo from './../promo/promo';
 import {getMoneyFormat} from '../../const';
 
 const Cart = () => {
-  const {cart} = useSelector((state) => state.GOODS);
-  const {promoDiscount} = useSelector((state) => state.GOODS);
+  const cart = useSelector((state) => state.GOODS.cart);
+  const promoDiscount = useSelector((state) => state.GOODS.promoDiscount);
   const total = cart.reduce((sum, item) => sum + item.price * item.count, 0);
   const discount = promoDiscount.percent * promoDiscount.roubles ? Math.min(promoDiscount.percent * total, promoDiscount.roubles) : Math.max(promoDiscount.percent * total, promoDiscount.roubles);
   const totalPrice = total > 0 ? total - discount : total;

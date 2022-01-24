@@ -1,5 +1,5 @@
 import './main-page.scss';
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {ActionCreator} from '../../../store/action';
 import Header from '../../header/header';
@@ -17,12 +17,12 @@ const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const catalogPosition = (currentPage - 1) * CARDS_PER_PAGE;
 
-  const {isDataLoaded} = useSelector((state) => state.GOODS);
+  const isDataLoaded = useSelector((state) => state.GOODS.isDataLoaded);
   const dispatch = useDispatch();
 
   !isDataLoaded && dispatch(ActionCreator.loadGoods(CATALOG_LIST));
 
-  const {filteredList} = useSelector((state) => state.GOODS);
+  const filteredList = useSelector((state) => state.GOODS.filteredList);
 
   useEffect(() => {
     setCurrentPage(1);

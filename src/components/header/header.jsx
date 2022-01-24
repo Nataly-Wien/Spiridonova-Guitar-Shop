@@ -8,7 +8,7 @@ import UserNav from '../user-nav/user-nav';
 import {LogoTypes} from '../../const';
 
 const Header = ({page}) => {
-  const {isMobileMenuOpen} = useSelector((state) => state.APPEARANCE);
+  const isMobileMenuOpen = useSelector((state) => state.APPEARANCE.isMobileMenuOpen);
 
   return (
     <header className="header">

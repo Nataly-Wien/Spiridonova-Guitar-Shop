@@ -10,8 +10,8 @@ import {PopupTypes} from '../../const';
 const Modal = () => {
   const [blockScroll, allowScroll] = useScrollBlock();
 
-  const {modalType} = useSelector((state) => state.APPEARANCE);
-  const {modalProps} = useSelector((state) => state.APPEARANCE);
+  const modalType = useSelector((state) => state.APPEARANCE.modalType);
+  const modalProps = useSelector((state) => state.APPEARANCE.modalProps);
 
   const dispatch = useDispatch();
 
