@@ -1,17 +1,15 @@
 import './promo.scss';
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import PropTypes from 'prop-types';
 import {PROMO_CODES, MODAL_POPUPS, PopupTypes} from '../../const';
 
-const Promo = ({code}) => {
+const Promo = ({code, focusRef}) => {
   const [promo, setPromo] = useState(code);
 
   const discount = useSelector((state) => state.GOODS.promoDiscount);
   const dispatch = useDispatch();
-
-  const submitBtnRef = useRef(null);
 
   const promoUnsuccess = () => {
     setPromo(code);
@@ -26,7 +24,7 @@ const Promo = ({code}) => {
 
     if (!promo.trim()) return;
 
-    submitBtnRef.current.focus();
+    focusRef.current.focus();
     const code = PROMO_CODES.find((it) => it.promo === promo.toUpperCase().trim());
 
     return code ? dispatch(ActionCreator.setDiscount(code)) : promoUnsuccess();
@@ -39,7 +37,7 @@ const Promo = ({code}) => {
       <div className="promo__wrapper">
         <input className={`promo__input${discount.promo === `` ? `` : ` promo__input--discount`}`} type="text" id="promo" value={promo} onChange={(evt) => setPromo(evt.target.value)} />
         <input className="promo__btn button button--grey" type="submit" value={`Применить купон`} onSubmit={(evt) => handleApplyClick(evt)}
-          onClick={(evt) => handleApplyClick(evt)} ref={submitBtnRef} />
+          onClick={(evt) => handleApplyClick(evt)} />
       </div>
     </form>
   );
@@ -47,6 +45,7 @@ const Promo = ({code}) => {
 
 Promo.propTypes = {
   code: PropTypes.string,
+  focusRef: PopupTypes.ref,
 };
 
 export default Promo;

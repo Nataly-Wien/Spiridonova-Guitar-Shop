@@ -32,6 +32,10 @@
       background-color: $rusty-hover;
     }
 
+    &:focus {
+      outline: 1px solid $dark;
+    }
+
     &:active {
       background-color: $rusty-active;
    }
