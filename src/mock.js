@@ -122,7 +122,7 @@ export const CATALOG_LIST = [
   {
     title: `Yamaha 400`,
     artNumber: `FG983422`,
-    price: 3500,
+    price: 3900,
     rating: 4.3,
     reviews: 34,
     picture: `/img/electro_1.png`,
@@ -182,7 +182,7 @@ export const CATALOG_LIST = [
   {
     title: `Dania Little`,
     artNumber: `DD541123`,
-    price: 3500,
+    price: 3550,
     rating: 3.3,
     reviews: 7,
     picture: `/img/ukulele_2.png`,
@@ -202,7 +202,7 @@ export const CATALOG_LIST = [
   {
     title: `Dania 20`,
     artNumber: `TK147665`,
-    price: 2200,
+    price: 2280,
     rating: 4,
     reviews: 2,
     picture: `/img/ukulele_1.png`,
@@ -252,7 +252,7 @@ export const CATALOG_LIST = [
   {
     title: `Честер Optima`,
     artNumber: `DP114654`,
-    price: 3500,
+    price: 3700,
     rating: 4.3,
     reviews: 9,
     picture: `/img/ukulele_2.png`,
@@ -312,7 +312,7 @@ export const CATALOG_LIST = [
   {
     title: `Dania Queen`,
     artNumber: `JD55447`,
-    price: 3500,
+    price: 3450,
     rating: 4.3,
     reviews: 7,
     picture: `/img/ukulele_2.png`,
@@ -352,7 +352,7 @@ export const CATALOG_LIST = [
   {
     title: `Виола 30T`,
     artNumber: `FF456598`,
-    price: 1700,
+    price: 1790,
     rating: 4,
     reviews: 3,
     picture: `/img/ukulele_2.png`,
@@ -402,7 +402,7 @@ export const CATALOG_LIST = [
   {
     title: `Честер Bass 500`,
     artNumber: `FQ223654`,
-    price: 3500,
+    price: 3900,
     rating: 4.3,
     reviews: 1,
     picture: `/img/ukulele_1.png`,
@@ -432,7 +432,7 @@ export const CATALOG_LIST = [
   {
     title: `Честер CC`,
     artNumber: `MM225446`,
-    price: 30000,
+    price: 34000,
     rating: 5,
     reviews: 24,
     picture: `/img/electro_4.png`,

@@ -31,7 +31,7 @@ const MainPage = () => {
   return (
     <div className="main-page page">
       <Header page={Pages.MAIN} />
-      <main className="main container">
+      <main className="main main-section container">
         <h1 className="main__title">Каталог гитар</h1>
         <BreadCrumbs />
         <Filters />

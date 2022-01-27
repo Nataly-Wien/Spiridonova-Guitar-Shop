@@ -3,6 +3,7 @@
 
 .filters {
   grid-area: filters;
+  max-width: 210px;
   margin-top: 15px;
 }
 
@@ -52,6 +53,7 @@
 
 .filters-form__legend {
   @include font(700, 18px, 21px, 0.4px);
+  @include reset-indent;
 
   margin-bottom: 24px;
   margin-left: 2px;

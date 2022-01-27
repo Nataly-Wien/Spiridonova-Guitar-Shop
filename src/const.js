@@ -177,6 +177,7 @@ export const GUITAR_TYPE = {
 
 export const getMoneyFormat = (number) => number.toString().split(``).reverse().join(``).match(/\d{0,3}/g).join(` `).split(``).reverse().join(``).trim();
 export const getNum = (string) => +string.replace(/[^0-9]/g, ``);
+export const getNumString = (string) => string.replace(/[^0-9]/g, ``);
 export const getCorrectValue = (value, min, max) => Math.min(Math.max(min, value), max);
 
 export const getRatingStyle = (rating) => {

@@ -3,9 +3,10 @@ import React, {useState} from "react";
 import {useDispatch} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import {cardTypesValidation} from './../../types-validation/card-types-validation';
-import {GUITAR_TYPE, CART_GOODS_MAX, MODAL_POPUPS, PopupTypes, getMoneyFormat, getNum, getCorrectValue} from '../../const';
+import {GUITAR_TYPE, CART_GOODS_MAX, MODAL_POPUPS, PopupTypes, getMoneyFormat, getNum, getNumString, getCorrectValue} from '../../const';
 
 const Good = ({good}) => {
+  const [numberInputValue, setNumberInputValue] = useState(`${good.count}`);
   const [number, setNumber] = useState(good.count);
   const dispatch = useDispatch();
 
@@ -21,6 +22,7 @@ const Good = ({good}) => {
 
   const setGoodNumber = (count) => {
     setNumber(count);
+    setNumberInputValue(`${count}`);
     dispatch(ActionCreator.setGoodNumber({good, count}));
   };
 
@@ -45,9 +47,11 @@ const Good = ({good}) => {
           onClick={handleMinusClick}>–
           <span className="visually-hidden">Уменьшить количество</span>
         </button>
-        <input className="good__btn good__btn--input" type="text" value={number}
-          onChange={(evt) => setNumber(getCorrectValue(getNum(evt.target.value), 1, CART_GOODS_MAX))}
-          onBlur={(evt) => setGoodNumber(+evt.target.value)} />
+        <input className="good__btn good__btn--input" type="text" value={numberInputValue}
+          onChange={(evt) => setNumberInputValue(getNumString(evt.target.value))}
+          onBlur={(evt) => {
+            setGoodNumber(getCorrectValue(getNum(evt.target.value), 1, CART_GOODS_MAX));
+          }} />
         <button className="good__btn good__btn--plus" type="button"
           onClick={() => setGoodNumber(getCorrectValue(number + 1, 1, CART_GOODS_MAX))}>+
           <span className="visually-hidden">Увеличить количество</span>

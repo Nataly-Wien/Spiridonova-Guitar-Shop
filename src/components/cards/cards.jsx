@@ -8,7 +8,7 @@ const Cards = ({catalogList}) => {
   return (
     <section className={`cards${catalogList.length ? `` : ` cards--empty`}`}>
       <h2 className="visually-hidden">Каталог</h2>
-      {catalogList && <div className="cards-wrapper">
+      {catalogList.length > 0 && <div className="cards-wrapper">
         {catalogList.map((item) => {
           return (<Card item={item} key={item.artNumber} />);
         })}

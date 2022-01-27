@@ -11,7 +11,7 @@ const CartPage = () => {
   return (
     <div className="cart-page page">
       <Header page={Pages.NOT_MAIN} />
-      <main className="cart-main container">
+      <main className="cart-main main-section container">
         <h1 className="cart-main__title">Корзина</h1>
         <BreadCrumbs />
         <Cart />

@@ -4,17 +4,19 @@
 .sort {
   grid-area: sort;
   display: flex;
-  margin: 19px -7px 0 15px;
+  max-width: 840px;
+  margin: 32px -7px 11px 14px;
 }
 
 .sort__title {
   @include font(400, 16px, 20px, 1px);
+  @include reset-indent;
 
   margin-right: 18px;
 }
 
 .sort__btn {
-  @include font(400, 16px, 20px, 1px);
+  @include font(400, 16px, 20px, 1.2px);
 
   color: $dark;
   padding: 1px 4px;
